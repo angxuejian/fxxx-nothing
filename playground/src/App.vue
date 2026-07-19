@@ -1,27 +1,38 @@
 <template>
   <div class="app">
     <uConfigProvide :htmlFontSize="16">
-      <uGrid
-        areas="'header header' 'aside main' '. footer'"
-        columns="50px 1fr"
-        rows="30px 1fr 30px"
+      <uVirtualList
+        ref="virtualListRef"
+        class="virtual-list"
+        :itemHeight="50"
+        :items="items"
+        itemKey="id"
       >
-        <uGridItem areaName="header">header</uGridItem>
-        <uGridItem areaName="aside">aside</uGridItem>
-        <uGridItem areaName="main">main</uGridItem>
-        <uGridItem areaName="footer">footer</uGridItem>
-      </uGrid>
+        <template #default="{ item, index }">
+          <div style="height: 50px" class="virtual-list-item">{{ item.name }} - {{ index }}</div>
+        </template>
+      </uVirtualList>
     </uConfigProvide>
+
+    <div @click="add">add</div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { uConfigProvide, uGrid, uGridItem } from '@u-nothing/index';
-import { onMounted } from 'vue';
+import { uConfigProvide, uVirtualList } from '@u-nothing/index';
+import { onMounted, ref } from 'vue';
 import '@theme/index.scss';
 onMounted(() => {
   console.log('playground');
 });
+
+const items = Array.from({ length: 150 }, (_, index) => {
+  return { name: `Item ${index + 1}`, id: index };
+});
+const virtualListRef = ref<InstanceType<typeof uVirtualList> | null>(null);
+const add = () => {
+  virtualListRef.value?.updateScrollTopByRow(1);
+};
 </script>
 
 <style lang="css">
@@ -73,5 +84,18 @@ body {
   justify-content: center;
   font-size: 14px;
   color: #000;
+}
+
+.virtual-list {
+  height: 500px;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+.virtual-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 </style>
