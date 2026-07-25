@@ -73,6 +73,11 @@ const updateScrollTopByRow = (delta: number) => {
   virtualListRef.value.scrollTop += delta * props.itemHeight;
 };
 
+const updateScrollTop = (top: number) => {
+  if (!virtualListRef.value) return;
+  virtualListRef.value.scrollTop = top;
+};
+
 onMounted(() => {
   observer = new ResizeObserver(() => {
     updateViewportHeight();
@@ -90,6 +95,7 @@ onUnmounted(() => {
 defineExpose({
   updateScrollTopByRow,
   updateViewportHeight,
+  updateScrollTop,
 });
 </script>
 

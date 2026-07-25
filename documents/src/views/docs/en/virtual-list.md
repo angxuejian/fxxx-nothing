@@ -57,7 +57,8 @@ const items = Array.from({ length: 150 }, (_, index) => ({
 
 ## Expose
 
-| Method Name          | Description                                   | Parameters        |
-| -------------------- | --------------------------------------------- | ----------------- |
-| updateScrollTopByRow | Scroll the list by a specified number of rows | `(delta: number)` |
-| updateViewportHeight | Recalculate the viewport height               | -                 |
+| Method Name          | Description                                     | Parameters        |
+| -------------------- | ----------------------------------------------- | ----------------- |
+| updateScrollTopByRow | Scroll the list by a specified number of rows   | `(delta: number)` |
+| updateViewportHeight | Recalculate the viewport height                 | -                 |
+| updateScrollTop      | Scroll the list by a specified number of height | `(top: number)`   |

@@ -61,3 +61,4 @@ const items = Array.from({ length: 150 }, (_, index) => ({
 | -------------------- | ------------------ | ----------------- |
 | updateScrollTopByRow | 按指定行数滚动列表 | `(delta: number)` |
 | updateViewportHeight | 重新计算视口高度   | -                 |
+| updateScrollTop      | 按指定高度滚动列表 | `(top: number)`   |

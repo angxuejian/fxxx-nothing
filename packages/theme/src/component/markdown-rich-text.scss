@@ -1,0 +1,83 @@
+@use '../common/index.scss' as *;
+
+@include b('markdown-rich-text') {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  // border: css-var('border-width-base') css-var('border-solid') css-var('color-primary');
+  font-size: css-var('size-token-font-size');
+  font-family: inherit;
+  flex-direction: column;
+  border-radius: css-var('border-radius-base');
+  overflow: hidden;
+  border: css-var('border-width-base') css-var('border-solid') css-var('border-color');
+
+
+  @include e('header') {
+    width: 100%;
+    flex: 0 0 35px;
+    display: flex;
+    align-items: center;
+    padding: css-var('padding-base');
+    // border-bottom: css-var('border-width-base') css-var('border-solid') css-var('color-primary');
+    font-size: css-var('size-token-font-size');
+    font-family: inherit;
+    background-color: #f6f8fa;
+    border-bottom: css-var('border-width-base') css-var('border-solid') css-var('border-color');
+
+  }
+
+  @include e('content') {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    position: relative;
+    padding-top: css-var('size-padding-y');
+    padding-bottom: css-var('size-padding-y');
+
+  }
+
+  @include e('serial-number') {
+    width: 50px;
+  }
+  @include e('serial-number-item') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: css-var('size-token-font-size');
+    font-family: inherit;
+    color: #59636e;
+  }
+  @include e('rich-text') {
+    flex: 1;
+
+    > textarea {
+      font-size: css-var('size-token-font-size');
+      font-family: inherit;
+      padding: 0 10px;
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      resize: none;
+      white-space: nowrap;
+      overflow-x:auto;
+    }
+  }
+
+  @include e('preview') {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    padding: css-var('padding-xxl');
+    * {
+      font-family: inherit;
+    }
+  }
+}
+
+
+
+
+

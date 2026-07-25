@@ -1,38 +1,32 @@
 <template>
   <div class="app">
     <uConfigProvide :htmlFontSize="16">
-      <uVirtualList
-        ref="virtualListRef"
-        class="virtual-list"
-        :itemHeight="50"
-        :items="items"
-        itemKey="id"
-      >
-        <template #default="{ item, index }">
-          <div style="height: 50px" class="virtual-list-item">{{ item.name }} - {{ index }}</div>
-        </template>
-      </uVirtualList>
+      <uMarkdownRichText v-model="textVal" class="markdown-rich-text"> </uMarkdownRichText>
     </uConfigProvide>
-
-    <div @click="add">add</div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { uConfigProvide, uVirtualList } from '@u-nothing/index';
+import { uConfigProvide, uMarkdownRichText } from '@u-nothing/index';
 import { onMounted, ref } from 'vue';
 import '@theme/index.scss';
 onMounted(() => {
   console.log('playground');
 });
 
-const items = Array.from({ length: 150 }, (_, index) => {
-  return { name: `Item ${index + 1}`, id: index };
-});
-const virtualListRef = ref<InstanceType<typeof uVirtualList> | null>(null);
-const add = () => {
-  virtualListRef.value?.updateScrollTopByRow(1);
-};
+const textVal = ref(`
+# u.nothing
+
+Just writing casually
+
+## Scripts
+
+| 命令                    | 说明                                  |
+| ----------------------- | ------------------------------------- |
+| pnpm run type-check   | 使用 vue-tsc 进行类型检查           |
+
+
+`);
 </script>
 
 <style lang="css">
@@ -86,16 +80,8 @@ body {
   color: #000;
 }
 
-.virtual-list {
+.markdown-rich-text {
   height: 500px;
-  width: 300px;
-  background-color: #f9f9f9;
-}
-.virtual-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
   width: 100%;
 }
 </style>

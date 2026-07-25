@@ -66,7 +66,7 @@ const clickHandler = () => {
 }
 
 .demo-container__component {
-  height: 200px;
+  height: 300px;
   box-sizing: border-box;
   perspective: 1000px; /* 关键：3D 视角 */
   background-color: #333;

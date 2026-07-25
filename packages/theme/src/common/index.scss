@@ -1,4 +1,3 @@
-@use './base.scss' as *;
 @use './namespace.scss' as *;
 @use './function.scss' as *;
 
@@ -61,11 +60,12 @@ $transition-transform: transform 0.3s ease;
 // 内边距
 $space-0: 2px;
 $space-1: 4px;
-$space-2: 8px;
-$space-3: 12px;
-$space-4: 16px;
-$space-5: 20px;
-$space-6: 24px;
+$space-2: 6px;
+$space-3: 8px;
+$space-4: 10px;
+$space-5: 12px;
+$space-6: 16px;
+$space-7: 20px;
 
 :root {
   --#{$namespace}-color-default: #{$color-black};
@@ -121,8 +121,10 @@ $space-6: 24px;
   --#{$namespace}-transition-transform: #{$transition-transform};
 
   --#{$namespace}-padding-sm: #{$space-0} #{$space-1};
-  --#{$namespace}-padding-base: #{$space-1} #{$space-2};
-  --#{$namespace}-padding-lg: 6px 10px;
+  --#{$namespace}-padding-base: #{$space-1} #{$space-3};
+  --#{$namespace}-padding-lg: #{$space-2} #{$space-4};
+  --#{$namespace}-padding-xl: #{$space-3} #{$space-5};
+  --#{$namespace}-padding-xxl: #{$space-4} #{$space-6};
 }
 
 
@@ -131,7 +133,8 @@ $space-6: 24px;
   --#{$namespace}-size-token-padding: #{css-var('padding-base')};
   --#{$namespace}-size-token-font-size: #{css-var('font-size-base')};
   --#{$namespace}-size-token-line-height: #{css-var('line-height-base')};
-  --#{$namespace}-size-token-gap: #{$space-2};
+  --#{$namespace}-size-token-gap: #{$space-3};
+  --#{$namespace}-size-padding-y: #{$space-1};
 
 }
 
@@ -140,12 +143,16 @@ $space-6: 24px;
   --#{$namespace}-size-token-font-size: #{css-var('font-size-sm')};
   --#{$namespace}-size-token-line-height: #{css-var('line-height-sm')};
   --#{$namespace}-size-token-gap: #{$space-1};
+  --#{$namespace}-size-padding-y: #{$space-0};
+
 }
 
 .is-large {
   --#{$namespace}-size-token-padding: #{css-var('padding-lg')};
   --#{$namespace}-size-token-font-size: #{css-var('font-size-lg')};
   --#{$namespace}-size-token-line-height: #{css-var('line-height-lg')};
-  --#{$namespace}-size-token-gap: #{$space-3};
+  --#{$namespace}-size-token-gap: #{$space-5};
+  --#{$namespace}-size-padding-y: #{$space-2};
+
 }
 // size token end
