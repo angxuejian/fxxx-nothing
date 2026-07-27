@@ -1,0 +1,13 @@
+import { describe, expect, it } from 'vitest';
+import { mount } from '@vue/test-utils';
+
+import {{componentName}} from '{{componentPath}}';
+
+describe('{{componentName}}', () => {
+it('renders correctly', () => {
+const wrapper = mount({{componentName}});
+
+    expect(wrapper.exists()).toBe(true);
+
+});
+});

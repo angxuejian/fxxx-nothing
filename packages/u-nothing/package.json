@@ -1,6 +1,6 @@
 {
   "name": "u-nothing",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Just writing casually",
   "main": "dist/u-nothing.cjs.js",
   "module": "dist/u-nothing.es.js",

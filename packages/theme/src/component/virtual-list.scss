@@ -1,0 +1,23 @@
+@use '../common/index.scss' as *;
+
+@include b('virtual-list') {
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  @include e('content') {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    will-change: transform;
+    // background-color: red;
+  }
+}

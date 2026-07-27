@@ -6,3 +6,5 @@ export { default as uTextarea } from './textarea';
 export { default as uRecorder } from './recorder';
 export { uFlex, uFlexItem } from './flex';
 export { uGrid, uGridItem } from './grid';
+export { default as uVirtualList } from './virtual-list';
+export { default as uMarkdownRichText } from './markdown-rich-text';

@@ -1,27 +1,32 @@
 <template>
   <div class="app">
     <uConfigProvide :htmlFontSize="16">
-      <uGrid
-        areas="'header header' 'aside main' '. footer'"
-        columns="50px 1fr"
-        rows="30px 1fr 30px"
-      >
-        <uGridItem areaName="header">header</uGridItem>
-        <uGridItem areaName="aside">aside</uGridItem>
-        <uGridItem areaName="main">main</uGridItem>
-        <uGridItem areaName="footer">footer</uGridItem>
-      </uGrid>
+      <uMarkdownRichText v-model="textVal" class="markdown-rich-text"> </uMarkdownRichText>
     </uConfigProvide>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { uConfigProvide, uGrid, uGridItem } from '@u-nothing/index';
-import { onMounted } from 'vue';
+import { uConfigProvide, uMarkdownRichText } from '@u-nothing/index';
+import { onMounted, ref } from 'vue';
 import '@theme/index.scss';
 onMounted(() => {
   console.log('playground');
 });
+
+const textVal = ref(`
+# u.nothing
+
+Just writing casually
+
+## Scripts
+
+| 命令                    | 说明                                  |
+| ----------------------- | ------------------------------------- |
+| pnpm run type-check   | 使用 vue-tsc 进行类型检查           |
+
+
+`);
 </script>
 
 <style lang="css">
@@ -73,5 +78,10 @@ body {
   justify-content: center;
   font-size: 14px;
   color: #000;
+}
+
+.markdown-rich-text {
+  height: 500px;
+  width: 100%;
 }
 </style>

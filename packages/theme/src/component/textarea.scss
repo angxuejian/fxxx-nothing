@@ -11,6 +11,7 @@
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: normal;
+  font-family: inherit;
 
   &:hover:not(:disabled) {
     border-color:css-var('color-primary');

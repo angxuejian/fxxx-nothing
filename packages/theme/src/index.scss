@@ -5,3 +5,24 @@
 @use './component/recorder.scss';
 @use './component/flex.scss';
 @use './component/grid.scss';
+@use './component/virtual-list.scss';
+@use './component/markdown-rich-text.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: css-var('color-default');
+  font-family: 'system-ui';
+}
+
+// ul,
+// ol {
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+// }
+// ul li,
+// ol li {
+//   list-style: none;
+// }
